@@ -1,0 +1,43 @@
+{
+  "actorSpecification": 1,
+  "name": "nexus-amazon-scraper",
+  "title": "Nexus Amazon Scraper",
+  "description": "Scrapes Amazon product data including prices, reviews, and details using Playwright + Crawlee with Apify proxy.",
+  "version": "1.0.0",
+  "buildTag": "latest",
+  "input": "./INPUT_SCHEMA.json",
+  "dockerfile": "./Dockerfile",
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "title": "Nexus Amazon Scraper Results",
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "url",
+              "title",
+              "data"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "url": {
+                "label": "URL",
+                "format": "link"
+              },
+              "title": {
+                "label": "Title"
+              },
+              "data": {
+                "label": "Data"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
